@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if picData %}
+	<h3>Photos</h3>
+	<h4>{{photos}}</h4>
+
+	{% for u in photos %}
+		<img src={{u}} alt="timeline_photo">
+	{% endfor %}
+
+
+{% else %}
+	<h3>No JSON. Oops</h3>
+{% endif %}
+
+
+{% endblock %}

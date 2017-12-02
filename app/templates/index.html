@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 align="center">INSTALYTICS</h1>
+
+<form action = "http://localhost:5000/photos" method = "POST">
+	<input type="submit" value="ANALYZE" />
+</form>
+
+<button type="button" href="http://localhost:5000/photos">TO PHOTOS</button>
+
+{% if data %}
+	<h3>Basic Data</h3>
+	<h4>{{data}}</h4>
+	<img src={{data['data']['profile_picture']}} alt="prof_pic">
+	<p><b>Username:</b> {{data['data']['username']}}<br>
+	<b>Following:</b> {{data['data']['counts']['follows']}}<br>
+	<b>Followers:</b> {{data['data']['counts']['followed_by']}}</p>
+
+{% else %}
+	<h3>No JSON. Oops</h3>
+{% endif %}
+
+
+{% endblock %}
